@@ -15,15 +15,14 @@
 
     // 본인의 Firebase 프로젝트 설정값
     const firebaseConfig = {
-  apiKey: "AIzaSyCZ02CL-1VwvFAPnU-m7fgNrHM_p5ed9lg",
-  authDomain: "user-manual-c207a.firebaseapp.com",
-  projectId: "user-manual-c207a",
-  storageBucket: "user-manual-c207a.firebasestorage.app",
-  messagingSenderId: "321115035557",
-  appId: "1:321115035557:web:6644f79cf8584cdff1fa4c",
-  measurementId: "G-4E7Q4ERHDZ"
-};
-
+      apiKey: "AIzaSyCZ02CL-1VwvFAPnU-m7fgNrHM_p5ed9lg",
+      authDomain: "user-manual-c207a.firebaseapp.com",
+      projectId: "user-manual-c207a",
+      storageBucket: "user-manual-c207a.firebasestorage.app",
+      messagingSenderId: "321115035557",
+      appId: "1:321115035557:web:6644f79cf8584cdff1fa4c",
+      measurementId: "G-4E7Q4ERHDZ"
+    };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -103,8 +102,8 @@
       <p class="subtitle" id="loginSubTitle">계정으로 로그인해주세요</p>
       <div class="card">
         <div class="input-group">
-          <label for="loginId">이메일 아이디</label>
-          <input type="email" id="loginId" placeholder="이메일을 입력하세요">
+          <label for="loginId">아이디</label>
+          <input type="email" id="loginId" placeholder="아이디를 입력하세요">
         </div>
         <div class="input-group">
           <label for="loginPw">비밀번호</label>
@@ -123,8 +122,8 @@
       <p class="subtitle">새로운 계정을 만들어주세요</p>
       <div class="card">
         <div class="input-group">
-          <label for="regId">이메일 아이디</label>
-          <input type="email" id="regId" placeholder="사용할 이메일을 입력하세요">
+          <label for="regId">아이디</label>
+          <input type="email" id="regId" placeholder="사용할 아이디를 입력하세요">
         </div>
         <div class="input-group">
           <label for="regPw">비밀번호</label>
@@ -302,7 +301,7 @@
     async function handleRegisterSubmit() {
       const id = document.getElementById('regId').value.trim();
       const pw = document.getElementById('regPw').value.trim();
-      if (!id || !pw) return showToast('이메일과 비밀번호를 입력해주세요!');
+      if (!id || !pw) return showToast('아이디와 비밀번호를 입력해주세요!');
       try {
         const userCred = await window.fbFns.createUserWithEmailAndPassword(window.fbAuth, id, pw);
         const uid = userCred.user.uid;
@@ -322,7 +321,7 @@
     async function handleLoginSubmit() {
       const id = document.getElementById('loginId').value.trim();
       const pw = document.getElementById('loginPw').value.trim();
-      if (!id || !pw) return showToast('이메일과 비밀번호를 입력해주세요!');
+      if (!id || !pw) return showToast('아이디와 비밀번호를 입력해주세요!');
       try {
         const userCred = await window.fbFns.signInWithEmailAndPassword(window.fbAuth, id, pw);
         const uid = userCred.user.uid;
